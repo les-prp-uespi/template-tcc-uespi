@@ -1,0 +1,36 @@
+\renewcommand{\listfigurename}{LISTA DE FIGURAS}
+\renewcommand{\listtablename}{LISTA DE TABELAS}
+\renewcommand{\listadesiglasname}{LISTA DE ABREVIATURAS E SIGLAS}
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename*}{lof}
+\begin{doublespacing}
+	\listoffigures*
+\end{doublespacing}
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename*}{lot}
+\begin{doublespacing}
+\listoftables*
+\end{doublespacing}
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{doublespacing}
+\begin{siglas}
+\item [ARP] \textit{Aprendizado por Reforço Profundo}
+\item [AR] \textit{Aprendizagem por reforço}
+\item [IA] \textit{Inteligência Artificial}
+\item [ARPMG] \textit{Aprendizado por reforço profundo  Multi-Agente}
+\item [MDP] \textit{Processo de Decisão Markoviano}
+\item [MLP] \textit{Multilayer perceptron}
+\end{siglas}
+\end{doublespacing}

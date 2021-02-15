@@ -1,0 +1,279 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	oneside,			% para impressão apenas no verso. Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	sumario=tradicional
+	]{abntex2}
+\usepackage[brazil]{babel}
+%\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage{subfigure}
+\usepackage{algorithm}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[noend]{algpseudocode}
+\usepackage[table]{xcolor}
+
+\usepackage{siunitx}
+\usepackage{makecell, booktabs, caption}
+\renewcommand\theadfont{\normalsize\bfseries}
+\usepackage{amsmath}
+\DeclareMathOperator{\Min}{Min}
+\DeclareMathOperator{\Max}{Max}
+
+\usepackage[T1]{fontenc}
+\usepackage{mwe}    % loads »blindtext« and »graphicx«
+\usepackage{subfig}
+\usepackage[noend]{algpseudocode}
+\graphicspath{ {images/} }
+
+% ---
+% PACOTES
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage[table]{xcolor}		% permite colocar cor nas tabelas
+\usepackage{multirow}			% possibilita mesclar celulas em tabelas
+\usepackage{float}
+\usepackage{enumitem}			% permite a criação de enumeraçao personalizada
+\usepackage{pdfpages}
+
+
+%----------------------------------------------------------------
+
+\DisemulatePackage{setspace}
+\usepackage{setspace}%espaçamento entre linhas 
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}		
+
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% ---
+
+%----------------------------------------------------------------
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		%Nenhuma citação no texto.%
+	\or
+		%Citado na página #2.%
+	\else
+		%Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\title{Modelo \LaTeX  para contrução de Monografias e Projetos de Pesquisa para as disciplinas de TCC I e II na Ciência da Computação UESPI}
+\autor{Ziraldo dos Cocais}
+\local{Piripiri-Piauí}
+\data{2020}
+\preambulo{Trabalho de conclusão de curso de graduação apresentado à
+Universidade Estadual do Piauí como requisito parcial para a obtenção de título de Bacharel em Ciência da Computação.
+
+{\vspace{\onelineskip} 
+\noindent 
+Área de habilitação: Ciência da computação}
+}
+
+
+
+
+
+
+\orientador{Prof. Dr. Orientador}
+\coorientador{Prof. Dr. Coorientador }
+\instituicao{Universidade Estadual do Piauí}
+\tipotrabalho{monografia}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Monogafia escrita com abnTeX2},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{monografia}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+
+
+
+
+\makeatother
+% --- 
+
+% ---
+% compila o indice
+% ---objetivos1.2.1
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{3cm}{2cm}{*} %direita e esquerda
+\setulmarginsandblock{3cm}{2cm}{*} %cima e baixo
+\checkandfixthelayout
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{2cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Espaçamento simples
+\onehalfspacing %entre linhas 1.5 padrao
+
+% -----
+% Declaracoes de cabecalhos 
+% -----
+% Cabecalho padrao
+\makepagestyle{abntheadings}
+\makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{\ABNTEXfontereduzida\leftmark}
+\makeoddhead{abntheadings}{\ABNTEXfontereduzida}{}{\ABNTEXfontereduzida\thepage}
+% Cabecalho do inicio do capitulo
+\makepagestyle{abntchapfirst}
+\makeoddhead{abntchapfirst}{}{}{\ABNTEXfontereduzida\thepage}
+% ----
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+\input{elementos-estruturais/capa.tex} %%Adiciona a compilacao um documento tex
+
+\setcounter{page}{1} %A contagem de pagina começa na folha de rosto sendo a pag.1
+\imprimirfolhaderosto
+
+\input{elementos-estruturais/banca.tex} % comentar se for projeto de TCC II
+\input{elementos-estruturais/dedicatoria.tex}% comentar se for projeto de TCC II
+\input{elementos-estruturais/agradecimentos.tex}% comentar se for projeto de TCC II
+\input{elementos-estruturais/epigrafe.tex}% comentar se for projeto de TCC II
+\input{elementos-estruturais/resumo.tex}% comentar se for projeto de TCC II
+\input{elementos-estruturais/abstract.tex}% comentar se for projeto de TCC II
+
+\input{elementos-estruturais/listas.tex}
+%% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+%% ---
+
+\input{elementos-estruturais/introducao.tex}
+\input{elementos-estruturais/revisaoliteratura.tex}
+\input{elementos-estruturais/metodologia.tex}
+\input{elementos-estruturais/resultados.tex}
+\input{elementos-estruturais/cronograma.tex} % comentar se for TCC II
+\input{elementos-estruturais/conclusao.tex}% comentar se for projeto de TCC II
+
+
+
+%\input{sumario.tex}
+%Abaixo o inicio da paginacao e do trabalho textual
+\pagestyle{abntheadings} % insere a paginacao nas paginas que nao sao capitulos
+\aliaspagestyle{chapter}{abntchapfirst}% insere a paginacao nos capitulos
+
+
+%\input{conclusao.tex}
+\newpage
+%Abaixo conteudo extra textual
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+% ---
+% Inicia os apêndices
+% ---
+
+	% ---
+	%\begin{apendicesenv}
+		
+		% Imprime uma página indicando o início dos apêndices
+		%\partapendices
+		
+		% ----------------------------------------------------------
+		%\input{apendice.tex}
+		
+	%\end{apendicesenv}
+
+\newpage
+%\input{cap/outracitacao.tex}
+\bibliographystyle{abntex2-alf}
+%\bibliography{references}
+
+
+%\begin{apendicesenv}
+% Imprime uma página indicando o início dos apêndices
+%\partapendices
+
+
+%\input{cap/apendiceC.tex}
+
+
+%\end{apendicesenv}
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+% ---
+% Inicia os anexos
+% ---
+%\begin{anexosenv}
+% Imprime uma página indicando o início dos anexos
+%\partanexos
+
+\newpage
+%\chapter{Resultados parciais}
+
+%artigo-scalable-task.pdf
+%\includepdf[pages=-]{artigo-scalable-task}
+
+\renewcommand\bibname{REFERÊNCIAS}
+\bibliography{references}
+%\end{anexosenv}
+\end{document}
+
+
